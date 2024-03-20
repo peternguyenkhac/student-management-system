@@ -1,4 +1,5 @@
-﻿using src.Models;
+﻿using src.Base;
+using src.Models;
 using src.Utils;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,8 @@ namespace src.Views
 
         public void Render()
         {
+            ViewHelper.Clear();
+            ViewHelper.WriteLine("=== THEM SINH VIEN ===");
             string studentCode = ViewHelper.ReadLine("Ma sinh vien");
             DateTime dateOfBirth = ViewHelper.ReadDatetime("Ngay sinh");
             string address = ViewHelper.ReadLine("Đia chi");
@@ -27,8 +30,7 @@ namespace src.Views
             double gPA = ViewHelper.ReadDouble("GPA");
 
             Student newStudent = new Student(dateOfBirth, address, height, weight, studentCode, schoolName, startYear, gPA);
-
-            ViewHelper.WriteLine(newStudent.ToString());
+            Router.Instance.Redirect("Thuc hien them sinh vien", newStudent);
         }
     }
 }

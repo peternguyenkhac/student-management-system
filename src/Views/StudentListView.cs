@@ -1,4 +1,6 @@
-﻿using src.Models;
+﻿using src.Base;
+using src.Models;
+using src.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace src.Views
 {
-    public class StudentListView
+    public class StudentListView : ViewBase
     {
         private List<Student> students;
 
@@ -18,16 +20,29 @@ namespace src.Views
 
         public void Render()
         {
+            ViewHelper.Clear();
+            ViewHelper.WriteLine("=== DANH SACH SINH VIEN ===");
             if(students.Count == 0)
             {
-                Console.WriteLine("Danh sach trong");
-                return;
+                ViewHelper.WriteLine("Danh sach trong");
+            }
+            else
+            {
+                foreach (var student in students)
+                {
+                    Console.WriteLine(student.ToString());
+                }
             }
 
-            foreach(var student in students)
+            Dictionary<string, object> menuList = new Dictionary<string, object>()
             {
-                Console.WriteLine(student.ToString());
-            }
+                {"Menu", null},
+                {"Tim kiem sinh vien", null },
+                {"Them sinh vien", null },
+                {"Xoa sinh vien", null }
+            };
+            KeyValuePair<string, object> label = ViewHelper.MenuList(menuList);
+            RouterInstance.Redirect(label.Key, label.Value);
         }
     }
 }

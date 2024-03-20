@@ -1,4 +1,5 @@
-﻿using src.Data;
+﻿using src.Base;
+using src.Data;
 using src.Models;
 using src.Views;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace src.Controllers
 {
-    public class StudentController
+    public class StudentController : ControllerBase
     {
         private readonly StudentRepository _studentRepository;
 
@@ -33,12 +34,15 @@ namespace src.Controllers
 
         public void GetById()
         {
-
+            SearchStudentView view = new SearchStudentView();
+            view.Render();
         }
 
         public void GetById(int id)
         {
             Student student = _studentRepository.GetById(id);
+            StudentView view = new StudentView(student);
+            view.Render();
         }
 
         public void Add() 
@@ -46,13 +50,36 @@ namespace src.Controllers
             CreateStudentView view = new CreateStudentView();
             view.Render();
         }
-        public void Update()
-        {
 
+        public void Add(Student newStudent)
+        {
+            _studentRepository.Add(newStudent);
+            RouterInstance.Redirect("Danh sach sinh vien");
         }
+
+        public void Update(int id)
+        {
+            Student student = _studentRepository.GetById(id);
+            UpdateStudentView view = new UpdateStudentView();
+            view.Render(student);
+        }
+
+        public void Update(Student updatedStudent)
+        {
+            _studentRepository.Update(updatedStudent);
+            RouterInstance.Redirect("Danh sach sinh vien");
+        }
+
         public void Remove()
         {
+            RemoveStudentView view = new RemoveStudentView();
+            view.Render();
+        }
 
+        public void Remove(int id)
+        {
+            _studentRepository.Remove(id);
+            RouterInstance.Redirect("Danh sach sinh vien");
         }
     }
 }

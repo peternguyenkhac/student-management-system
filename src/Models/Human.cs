@@ -9,7 +9,8 @@ namespace src.Models
 {
     public class Human
     {
-        private static int _id = 1;
+        private static int _nextId = 1;
+        private int _id;
         private DateTime _dateOfBirth;
         private string _address;
         private int _height;
@@ -23,7 +24,16 @@ namespace src.Models
 
         public Human(DateTime dateOfBirth, string address, int height, int weight)
         {
-            _id = _id;
+            _id = _nextId++;
+            _dateOfBirth = dateOfBirth;
+            _address = address;
+            _height = height;
+            _weight = weight;
+        }
+
+        public Human(int id, DateTime dateOfBirth, string address, int height, int weight)
+        {
+            _id = id;
             _dateOfBirth = dateOfBirth;
             _address = address;
             _height = height;

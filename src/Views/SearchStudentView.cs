@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace src.Views
 {
-    public class RemoveStudentView : ViewBase
+    public class SearchStudentView
     {
-        public RemoveStudentView()
+        public SearchStudentView()
         {
         }
 
         public void Render()
         {
             ViewHelper.Clear();
-            ViewHelper.WriteLine("=== XOA SINH VIEN ===");
-            int id = ViewHelper.ReadInt("Id sinh vien can xoa");
-            RouterInstance.Redirect("Thuc hien xoa sinh vien", id);
+            ViewHelper.WriteLine("=== TIM KIEM SINH VIEN ===");
+            int id = ViewHelper.ReadInt("Nhap Id sinh vien can tim");
+            Router.Instance.Redirect(21, id);  
         }
     }
 }

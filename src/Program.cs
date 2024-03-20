@@ -1,6 +1,7 @@
 ﻿using src.Base;
 using src.Controllers;
 using src.Data;
+using src.Models;
 
 namespace src
 {
@@ -10,9 +11,17 @@ namespace src
         {
             Context context = new Context();
             StudentController studentController = new StudentController(context);
-            Router.Instance.Register(0, "Menu View", studentController.Index);
-            Router.Instance.Register(1, "Danh sach sinh vien", studentController.GetAll);
-            Router.Instance.Register(2, "Them sinh vien", studentController.Add);
+            Router.Instance.Register(0, "Menu", (p) => { studentController.Index(); });
+            Router.Instance.Register(1, "Danh sach sinh vien", (p) => { studentController.GetAll(); });
+            Router.Instance.Register(2, "Tim kiem sinh vien", (p) => { studentController.GetById(); });
+            Router.Instance.Register(21, "Sinh vien", (p) => { studentController.GetById((int)p); });
+            Router.Instance.Register(3, "Them sinh vien", (p) => { studentController.Add(); });
+            Router.Instance.Register(31, "Thuc hien them sinh vien", (p) => { studentController.Add((Student)p); });
+            Router.Instance.Register(4, "Cap nhat sinh vien", (p) => { studentController.Update((int)p); });
+            Router.Instance.Register(41, "Thuc hien cap nhat sinh vien", (p) => { studentController.Update((Student)p); });
+            Router.Instance.Register(5, "Xoa sinh vien", (p) => { studentController.Remove(); });
+            Router.Instance.Register(51, "Thuc hien xoa sinh vien", (p) => { studentController.Remove((int)p); });
+
 
             while (true)
             {

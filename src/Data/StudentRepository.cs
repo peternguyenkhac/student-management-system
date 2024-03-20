@@ -31,18 +31,18 @@ namespace src.Data
             _context.Students.Add(student);
         }
 
-        public void Update(int id, Student newStudent)
+        public void Update(Student updatedStudent)
         {
-            Student student = GetById(id);
+            Student student = GetById(updatedStudent.Id);
 
-            student.StudentCode = newStudent.StudentCode;
-            student.DateOfBirth = newStudent.DateOfBirth;
-            student.SchoolName = newStudent.SchoolName;
-            student.StartYear = newStudent.StartYear;
-            student.GPA = newStudent.GPA;
-            student.Address = newStudent.Address;
-            student.Height = newStudent.Height;
-            student.Weight = newStudent.Weight;
+            student.StudentCode = updatedStudent.StudentCode;
+            student.DateOfBirth = updatedStudent.DateOfBirth;
+            student.SchoolName = updatedStudent.SchoolName;
+            student.StartYear = updatedStudent.StartYear;
+            student.GPA = updatedStudent.GPA;
+            student.Address = updatedStudent.Address;
+            student.Height = updatedStudent.Height;
+            student.Weight = updatedStudent.Weight;
         }
 
         public void Remove(int id)

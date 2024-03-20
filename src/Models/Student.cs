@@ -27,6 +27,14 @@ namespace src.Models
             _gPA = gPA;
         }
 
+        public Student(int id, DateTime dateOfBirth, string address, int height, int weight, string studentCode, string schoolName, int startYear, double gPA) : base(id, dateOfBirth, address, height, weight)
+        {
+            _studentCode = studentCode;
+            _schoolName = schoolName;
+            _startYear = startYear;
+            _gPA = gPA;
+        }
+
         public string ToString()
         {
             return $"{base.ToString()}, Student code: {this._studentCode}, School name: {this._schoolName}, Start year: {this._startYear}, GPA: {this._gPA}";
