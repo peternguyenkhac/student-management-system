@@ -20,6 +20,7 @@ namespace src.Views
             ViewHelper.Clear();
             ViewHelper.WriteLine("=== Update sinh vien ===");
             string studentCode = ViewHelper.ReadLine("Ma sinh vien", student.StudentCode);
+            string name = ViewHelper.ReadLine("Ten", student.Name);
             DateTime dateOfBirth = ViewHelper.ReadDatetime("Ngay sinh", student.DateOfBirth);
             string address = ViewHelper.ReadLine("Đia chi", student.Address);
             int height = ViewHelper.ReadInt("Chieu cao", student.Height);
@@ -28,7 +29,7 @@ namespace src.Views
             int startYear = ViewHelper.ReadInt("Nam nhap hoc", student.StartYear);
             double gPA = ViewHelper.ReadDouble("GPA", student.GPA);
 
-            Student updated = new Student(student.Id, dateOfBirth, address, height, weight, studentCode, schoolName, startYear, gPA);
+            Student updated = new Student(student.Id, name ,dateOfBirth, address, height, weight, studentCode, schoolName, startYear, gPA);
             Router.Instance.Redirect("Thuc hien cap nhat sinh vien", updated);
         }
     }

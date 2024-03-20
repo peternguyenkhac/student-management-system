@@ -20,7 +20,8 @@ namespace src.Views
         {
             ViewHelper.Clear();
             ViewHelper.WriteLine("=== THEM SINH VIEN ===");
-            string studentCode = ViewHelper.ReadLine("Ma sinh vien");
+            string studentCode = ViewHelper.ReadLine("Ma sinh vien", StudentValidation.IsValidStudentCode);
+            string name = ViewHelper.ReadLine("Ten", HumanValidation.IsValidName);
             DateTime dateOfBirth = ViewHelper.ReadDatetime("Ngay sinh");
             string address = ViewHelper.ReadLine("Đia chi");
             int height = ViewHelper.ReadInt("Chieu cao");
@@ -29,7 +30,7 @@ namespace src.Views
             int startYear = ViewHelper.ReadInt("Nam nhap hoc");
             double gPA = ViewHelper.ReadDouble("GPA");
 
-            Student newStudent = new Student(dateOfBirth, address, height, weight, studentCode, schoolName, startYear, gPA);
+            Student newStudent = new Student(name, dateOfBirth, address, height, weight, studentCode, schoolName, startYear, gPA);
             Router.Instance.Redirect("Thuc hien them sinh vien", newStudent);
         }
     }

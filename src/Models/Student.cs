@@ -19,7 +19,7 @@ namespace src.Models
         public int StartYear { get => _startYear; set => _startYear = value; }
         public double GPA { get => _gPA; set => _gPA = value; }
 
-        public Student(DateTime dateOfBirth, string address, int height, int weight, string studentCode, string schoolName, int startYear, double gPA) : base(dateOfBirth, address, height, weight)
+        public Student(string name, DateTime dateOfBirth, string address, int height, int weight, string studentCode, string schoolName, int startYear, double gPA) : base(name, dateOfBirth, address, height, weight)
         {
             _studentCode = studentCode;
             _schoolName = schoolName;
@@ -27,7 +27,7 @@ namespace src.Models
             _gPA = gPA;
         }
 
-        public Student(int id, DateTime dateOfBirth, string address, int height, int weight, string studentCode, string schoolName, int startYear, double gPA) : base(id, dateOfBirth, address, height, weight)
+        public Student(int id, string name, DateTime dateOfBirth, string address, int height, int weight, string studentCode, string schoolName, int startYear, double gPA) : base(id, name, dateOfBirth, address, height, weight)
         {
             _studentCode = studentCode;
             _schoolName = schoolName;
