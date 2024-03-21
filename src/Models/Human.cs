@@ -46,7 +46,7 @@ namespace src.Models
 
         public string ToString()
         {
-            return $"Id: {_id}, Date of birth: {this._dateOfBirth.ToString("MM/dd/yyyy")}, Address: {this._address}, Height: {this._height}, Weight: {this._weight}";
+            return $"Id: {_id}, Name: {this._name}, Date of birth: {this._dateOfBirth.ToString("MM/dd/yyyy")}, Address: {this._address}, Height: {this._height}, Weight: {this._weight}";
         }
     }
 }

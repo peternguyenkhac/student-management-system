@@ -21,6 +21,10 @@ namespace src
             Router.Instance.Register(41, "Thuc hien cap nhat sinh vien", (p) => { studentController.Update((Student)p); });
             Router.Instance.Register(5, "Xoa sinh vien", (p) => { studentController.Remove(); });
             Router.Instance.Register(51, "Thuc hien xoa sinh vien", (p) => { studentController.Remove((int)p); });
+            Router.Instance.Register(6, "Phan tram hoc luc", (p) => { studentController.GetAcademicPerformancePercentage(); });
+            Router.Instance.Register(7, "Phan tram GPA", (p) => { studentController.GetAverageScorePercentage(); });
+            Router.Instance.Register(8, "Tim kiem sinh vien bang hoc luc", (p) => { studentController.GetStudentsByAcademicPerformance(); });
+            Router.Instance.Register(81, "Thuc hien tim kiem sinh vien bang hoc luc", (p) => { studentController.GetStudentsByAcademicPerformance((string)p); });
 
 
             while (true)

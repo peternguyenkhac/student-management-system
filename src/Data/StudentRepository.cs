@@ -1,4 +1,5 @@
 ﻿using src.Models;
+using src.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,13 @@ namespace src.Data
 
         public void Add(Student student)
         {
+            student.AcademicPerformance = student.GPA < 3 ? AcademicPerformance.VeryPoor :
+                                          student.GPA < 5 ? AcademicPerformance.Poor :
+                                          student.GPA < 6.5 ? AcademicPerformance.Fair :
+                                          student.GPA < 7.5 ? AcademicPerformance.Good :
+                                          student.GPA < 9 ? AcademicPerformance.VeryGood :
+                                          AcademicPerformance.Excellent;
+
             _context.Students.Add(student);
         }
 
@@ -43,6 +51,12 @@ namespace src.Data
             student.Address = updatedStudent.Address;
             student.Height = updatedStudent.Height;
             student.Weight = updatedStudent.Weight;
+            student.AcademicPerformance = student.GPA < 3 ? AcademicPerformance.VeryPoor :
+                              student.GPA < 5 ? AcademicPerformance.Poor :
+                              student.GPA < 6.5 ? AcademicPerformance.Fair :
+                              student.GPA < 7.5 ? AcademicPerformance.Good :
+                              student.GPA < 9 ? AcademicPerformance.VeryGood :
+                              AcademicPerformance.Excellent;
         }
 
         public void Remove(int id)

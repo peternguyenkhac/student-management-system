@@ -20,6 +20,8 @@ namespace src.Views
 
         public void Render()
         {
+            ViewHelper.Clear();
+            ViewHelper.WriteLine("=== SINH VIEN ===");
             if(student == null)
             {
                 ViewHelper.WriteLine("Khong tim thay sinh vien!");
