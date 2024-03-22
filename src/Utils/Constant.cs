@@ -19,5 +19,6 @@ namespace src.Utils
         public const int MIN_YEAR = 1900;
         public const int MIN_GPA = 0;
         public const int MAX_GPA = 10;
+        public const string FILE_PATH = "student.dat";
     }
 }

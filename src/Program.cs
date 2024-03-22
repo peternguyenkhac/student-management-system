@@ -25,6 +25,8 @@ namespace src
             Router.Instance.Register(7, "Phan tram GPA", (p) => { studentController.GetAverageScorePercentage(); });
             Router.Instance.Register(8, "Tim kiem sinh vien bang hoc luc", (p) => { studentController.GetStudentsByAcademicPerformance(); });
             Router.Instance.Register(81, "Thuc hien tim kiem sinh vien bang hoc luc", (p) => { studentController.GetStudentsByAcademicPerformance((string)p); });
+            Router.Instance.Register(9, "Luu", (p) => { studentController.SaveChanges(); });
+
 
 
             while (true)

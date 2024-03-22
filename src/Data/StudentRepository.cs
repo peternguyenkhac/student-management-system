@@ -3,6 +3,7 @@ using src.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,6 +16,7 @@ namespace src.Data
         public StudentRepository(Context context)
         {
             _context = context;
+            _context.Load();
         }
 
         public List<Student> GetAll()
@@ -63,6 +65,11 @@ namespace src.Data
         {
             Student student = GetById(id);
             _context.Students.Remove(student);
+        }
+
+        public void SaveChanges()
+        {
+            _context.SaveChanges();
         }
     }
 }

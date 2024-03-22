@@ -28,7 +28,8 @@ namespace src.Views
                 {"Xoa sinh vien", null },
                 {"Phan tram hoc luc", null },
                 {"Phan tram GPA", null },
-                {"Tim kiem sinh vien bang hoc luc", null }
+                {"Tim kiem sinh vien bang hoc luc", null },
+                {"Luu", null }
             };
             KeyValuePair<string, object> label = ViewHelper.MenuList(menuList);
             RouterInstance.Redirect(label.Key, label.Value);

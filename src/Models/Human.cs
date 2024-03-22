@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace src.Models
 {
+    [Serializable]
     public class Human
     {
         private static int _nextId = 1;

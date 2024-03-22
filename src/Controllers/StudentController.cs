@@ -177,5 +177,10 @@ namespace src.Controllers
             StudentListByAcademicPerformanceView view = new StudentListByAcademicPerformanceView(studentAcademicPerformance, students);
             view.Render();
         }
+
+        public void SaveChanges()
+        {
+            _studentRepository.SaveChanges();
+        }
     }
 }
