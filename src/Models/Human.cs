@@ -24,6 +24,7 @@ namespace src.Models
         public string Address { get => _address; set => _address = value; }
         public int Height { get => _height; set => _height = value; }
         public int Weight { get => _weight; set => _weight = value; }
+        public static int NextId { get => _nextId; set => _nextId = value; }
 
         public Human(string name, DateTime dateOfBirth, string address, int height, int weight)
         {

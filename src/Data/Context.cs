@@ -11,7 +11,7 @@ namespace src.Data
 {
     public class Context
     {
-        public List<Student> Students { get; set; } = new List<Student>();
+        public List<Student> Students { get; set; }
 
         public void Load()
         {
@@ -22,6 +22,7 @@ namespace src.Data
                     BinaryFormatter binaryFormatter = new BinaryFormatter();
                     List<Student> students = (List<Student>)binaryFormatter.Deserialize(fileStream);
                     Students = students;
+                    Human.NextId = students.Max(x => x.Id) + 1;
                 }
             }
         }
