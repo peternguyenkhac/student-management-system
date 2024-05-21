@@ -33,6 +33,7 @@ namespace src.Views
                 };
             KeyValuePair<string, object> label = ViewHelper.MenuList(menuList);
             RouterInstance.Redirect(label.Key, label.Value);
+
         }
     }
 }
